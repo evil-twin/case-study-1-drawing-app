@@ -8,8 +8,10 @@ function LineToTool(){
 
 	this.draw = function(){
 
-		if(mouseIsPressed){
+		if(mouseIsPressed){ // mouse pressed
 			if(startMouseX == -1){
+				// here is the first frame after pressing the mouse for the first time
+				// it's locking draw start point state
 				startMouseX = mouseX;
 				startMouseY = mouseY;
 				drawing = true;
@@ -17,16 +19,21 @@ function LineToTool(){
 			}
 
 			else{
+				// this is not the first frame after the mouse is pressed for the first time
+				// it's actual drawing the line, after the state is altered at the first frame
 				updatePixels();
 				line(startMouseX, startMouseY, mouseX, mouseY);
 			}
 
 		}
 
-		else if(drawing){
-			drawing = false;
-			startMouseX = -1;
-			startMouseY = -1;
+		else { // mouse is not pressed
+			if(drawing){
+				// here to reset draw state after mouse is relased, if it was still drawing
+				drawing = false;
+				startMouseX = -1;
+				startMouseY = -1;
+			}
 		}
 	};
 
