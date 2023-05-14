@@ -22,7 +22,7 @@ function setup() {
 	toolbox.addTool(new FreehandTool());
 	toolbox.addTool(new LineToTool());
 	toolbox.addTool(new SprayCanTool());
-	toolbox.addTool(new mirrorDrawTool());
+	toolbox.addTool(new MirrorDrawTool());
 	background(255);
 
 }
